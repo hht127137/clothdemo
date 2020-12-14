@@ -16,8 +16,8 @@
 					<view class="titles">
 						<p>VIP</p>
 					</view>
-					<view class="titles">
-						
+					<view class="titles sucn">
+						<view class="login-t">立即登录</view>
 					</view>
 				</view>
 			</view>
@@ -110,6 +110,7 @@
 		top: 100upx;
 		left: 50%;
 		transform: translateX(-50%);
+		
 	}
 	.user-t{
 		width: 100%;
@@ -146,12 +147,10 @@
 		height: 50%;
 		display: flex;
 	}
-	.user-b view{
-		width: 50%;
-		height: 100%;
-	}
 	.titles{
 		/* text-align: center; */
+		width: 50%;
+		height: 100%;
 		color: #FFFFFF;
 		padding: 20upx;
 		font-size: 28upx;
@@ -159,6 +158,7 @@
 	.titles p:nth-of-type(1){
 		font-size: 80upx;
 		color: #d9d919;
+		padding-left: 20upx;
 	}
 	.piple{
 		color: #f40;
@@ -245,5 +245,22 @@
 	.logins{
 		height: 80upx;
 
+	}
+	.login-t{
+		width: 200upx;
+		height: 60upx;
+		background-color: #2C334D\
+		;
+		color: #FFFFFF;
+		text-align: center;
+		border-radius: 30upx;
+		margin-top: 35upx;
+		line-height: 60upx;
+		border: 1px solid #FFFFFF;
+		position: absolute;
+		top: -68upx;
+	}
+	.sucn{
+		position: relative;
 	}
 </style>
