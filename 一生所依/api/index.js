@@ -10,14 +10,10 @@ function request(path,params,methods,callback){
 			"Content-Type": "application/x-www-form-urlencoded" //自定义请求头信息
 		},
 		success: (res) => {
-			console.log(res.data.result);
 			// this.img = res.data.result.img
 			// console.log(this.img)
 			callback(res)
-			// uni.showToast({
-			// 	title: '登录成功',
-			// 	duration: 2000
-			// });
+			
 		}
 	});
 }

@@ -9,7 +9,7 @@
 			<button @click="sendCode">{{codeBtn.text}}</button>
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="password" v-model="query.username" class="uni-input" name="" placeholder="请输入用户名" />
+			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="请输入用户名" />
 		</view>
 		<view class="uni-form-item uni-column">
 			<input type="password" v-model="query.password" class="uni-input" name="" placeholder="请输入密码" />
@@ -43,7 +43,6 @@
 		},
 		methods: {
 			sendCode: function () {
-				console.log(1)
 				this.codeBtn.waitingCode = true;
 				this.codeBtn.count = this.seconds;
 				this.codeBtn.text = this.codeBtn.count + 's';

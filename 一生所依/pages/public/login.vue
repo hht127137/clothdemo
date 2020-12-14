@@ -32,10 +32,10 @@
 					<view v-else>
 						<view class="input-item">
 							<text class="tit">手机号码</text>
-							<input type="number" :value="mobile" placeholder="请输入手机号码" maxlength="11" data-key="mobile" @input="inputChange" />
+							<input type="number" placeholder="请输入手机号码" maxlength="11" v-model="query.mobile" />
 						</view>
 						<view class="phoneMsg">
-							<input class="tit" :value="sms" placeholder="请输入验证码" maxlength="7" data-key="sms" @input="inputChange" />
+							<input class="tit" placeholder="请输入验证码" maxlength="7" v-model="query.sms" />
 							<button @click="sendCode">{{codeBtn.text}}</button>
 						</view>
 					</view>
@@ -60,22 +60,37 @@
 		mapMutations
 	} from 'vuex';
 	import request from "@/api/index.js"
+	import qs from 'qs'
 
 	export default {
 		data() {
 			return {
 				mobile: '',
 				password: '',
-				sms:'',
 				logining: false,
 				loginMode: ["密码登录", "短信登录"],
-				current: 1,
+				current: 0,
 				msg: "发送验证码",
 				seconds: 10,
 				codeBtn: {
 					text: '获取验证码',
 					waitingCode: false,
 					count: this.seconds
+				},
+				query: {
+					mobile: "",
+					sms: ""
+				},
+				//验证规则
+				rules: {
+					mobile: {
+						rule: /\S/,
+						msg: "账号不能为空"
+					},
+					password: {
+						rule: /^[0-9a-zA-Z]{6,16}$/,
+						msg: "密码应该为6-16位"
+					},
 				}
 			}
 		},
@@ -92,9 +107,12 @@
 				uni.navigateBack();
 			},
 			toRegist() {
-				this.$api.msg('去注册');
+				uni.redirectTo({
+					url: "../register/register"
+				})
 			},
 			changeLogin(index) {
+				this.logining = false
 				this.current = index;
 			},
 			//发送验证码
@@ -102,87 +120,68 @@
 				this.codeBtn.waitingCode = true;
 				this.codeBtn.count = this.seconds;
 				this.codeBtn.text = this.codeBtn.count + 's';
-				
-				let countdown = setInterval( () => {
+
+				let countdown = setInterval(() => {
 					this.codeBtn.count--;
 					this.codeBtn.text = this.codeBtn.count + 's';
-					if( this.codeBtn.count < 0 ){
+					if (this.codeBtn.count < 0) {
 						clearInterval(countdown);
 						this.codeBtn.text = '重新发送';
 						this.codeBtn.waitingCode = false;
+						this.logining = false
 					}
-				},1000);
-				uni.request({
-				    url: 'http://yishengsuoyi.cnyouwei.com/index/index/sendSMS', //仅为示例，并非真实接口地址。
-				    method:"POST",
-					data: {
-				        mobile:this.mobile
-				    },
-				    header: {
-				        "Content-Type":"application/x-www-form-urlencoded" //自定义请求头信息
-				    },
-				    success: (res) => {
-				        console.log(res);
-				    }
-				});
-				
+				}, 1000);
+				//请求验证码接口
+				console.log(1)
+				console.log(this.query.mobile)
+				request("/sendSMS", {
+					mobile: this.query.mobile
+				}, "post", function(res) {
+					// console.log(res);
+				})
 			},
 			async toLogin() {
-				this.logining = true;
-				// this.$http.login('/index/login',{mobile:this.mobile,password:this.password}).then(res=>{
-				// 	console.log(res);
-				// })
+				
+				this.logining = true
 				//密码登录
 				if (this.current == 0) {
-					request("/login",{
-							mobile: this.mobile,
-							password: this.password
-						},"post",function(res){
-							console.log(res);
-						})
-					// uni.request({
-					// 	url: 'http://yishengsuoyi.cnyouwei.com/index/index/login', //仅为示例，并非真实接口地址。
-					// 	method: "POST",
-					// 	data: {
-					// 		mobile: this.mobile,
-					// 		password: this.password
-					// 	},
-					// 	header: {
-					// 		"Content-Type": "application/x-www-form-urlencoded" //自定义请求头信息
-					// 	},
-					// 	success: (res) => {
-					// 		console.log(res.data.result);
-					// 		this.img = res.data.result.img
-					// 		console.log(this.img)
-					// 		uni.showToast({
-					// 			title: '登录成功',
-					// 			duration: 2000
-					// 		});
-					// 	}
-					// });
-				}else{
+					if(!this.validate('mobile')) return;
+					if(!this.validate("password"))  return;
+					console.log(this.mobile)
+					request("/login", {
+						mobile: this.mobile,
+						password: this.password
+					}, "post", function(res) {
+						console.log(res);
+						if (res.data.code != 0) {
+							uni.showToast({
+								title: '登录成功',
+								duration: 2000
+							});
+						}
+					})
+				} else {
 					//验证码登录
-					console.log(this.sms,this.mobile)
-					uni.request({
-					    url: 'http://yishengsuoyi.cnyouwei.com/index/index/smslogin', //仅为示例，并非真实接口地址。
-					    method:"POST",
-						data: {
-					        mobile:this.mobile,
-							sms:this.sms
-					    },
-					    header: {
-					        "Content-Type":"application/x-www-form-urlencoded" //自定义请求头信息
-					    },
-					    success: (res) => {
-					        console.log(res);
-					        uni.showToast({
-					            title: '登录成功',
-					            duration: 2000
-					        });
-					    }
-					});
+					console.log(this.query)
+					request("/smslogin", this.query, "post", function(res) {
+						console.log(res);
+					})
 				}
-			}
+			},
+			validate(key) {
+				let bool = true;
+				if (!this.rules[key].rule.test(this[key])) {
+					//提示信息
+					uni.showToast({
+						title: this.rules[key].msg,
+						icon:"none"
+					})
+					//取反
+					bool = false;
+					return false;
+				}
+				return bool;
+			},
 		},
 
 	}
@@ -329,13 +328,20 @@
 		align-content: center;
 
 		input {
-			height: 60upx;
+			height: 64upx;
 			background: #F8F6FC;
 			margin-right: 16upx;
+			padding-left: 24upx;
+			font-size: 28upx;
+			box-sizing: border-box;
 		}
 
 		button {
 			margin: 0;
+			height: 64upx;
+			font-size: 26upx;
+			background: #F8F6FC;
+			overflow: inherit;
 		}
 	}
 

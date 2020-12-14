@@ -15,17 +15,11 @@
 				<view>公告</view>
 				<view>|</view>
 				<view class="uni-padding-wrap">
-					<view class="uni-swiper-msg-myflex">
-						<view class="left-Iocn">
-							<icon class="iconfont icon-voice1"></icon>
-						</view>
-
-						<swiper class="limitp-hg" vertical="true" autoplay="true" circular="true" interval="3000">
-							<swiper-item v-for="(item, index) in msg" :key="index">
-								<navigator class="scrool-list-item">{{item}}</navigator>
-							</swiper-item>
-						</swiper>
-					</view>
+					<swiper class="limitp-hg" vertical="true" autoplay="true" circular="true" interval="3000">
+						<swiper-item v-for="(item, index) in msg" :key="index">
+							<navigator class="scrool-list-item">{{item}}</navigator>
+						</swiper-item>
+					</swiper>
 				</view>
 			</view>
 			<view class="article">
@@ -85,6 +79,7 @@
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue"
 	import uniGrid from "@/components/uni-grid/uni-grid.vue"
 	import uniGridItem from "@/components/uni-grid-item/uni-grid-item.vue"
+    import request from '@/api/index.js'
 
 	export default {
 		data() {
@@ -103,7 +98,7 @@
 					backgroundColor: "#fff",
 					selectedBackgroundColor: "#E0AD89"
 				},
-				msg:[
+				msg: [
 					"一生依世最优政策全国招盟区县加盟商!",
 					"欢迎加盟",
 					"加盟热线154981516511"
@@ -118,14 +113,20 @@
 			uniGridItem
 		},
 		created() {
-
+   
 		},
 		onLoad() {
 			this.animation = uni.createAnimation()
+			this.getList()
 		},
 		methods: {
 			change(e) {
 				this.current = e.detail.current;
+			},
+			getList(){
+				request("/index","","post",function(res){
+					console.log(res);
+				})
 			}
 		}
 	}
@@ -238,7 +239,7 @@
 	}
 
 	.scrool-list-item {
-		color: red;
+		color: #7D7D7D;
 	}
 
 	.uni-swiper-msg-myflex {
@@ -253,11 +254,15 @@
 
 	.limitp-hg {
 		width: calc(100% - 50rpx);
-		height: 60rpx;
-		line-height: 60rpx;
+		height: 40rpx;
+		line-height: 40rpx;
 	}
 
 	.scrool-list-item {
 		font-size: 30rpx;
+	}
+	
+	.uni-padding-wrap{
+		width: 260upx;
 	}
 </style>
