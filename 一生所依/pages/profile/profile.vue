@@ -17,7 +17,7 @@
 						<p>VIP</p>
 					</view>
 					<view class="titles sucn">
-						<view class="login-t" @click="toLogin">立即登录</view>
+						<view class="login-t" @click="toLogin" v-show="isBool">立即登录</view>
 					</view>
 				</view>
 			</view>
@@ -66,7 +66,7 @@
 				</view>
 			</view>
 			<!-- 退出登录 -->
-			<view class="logins" @click="loginOut">退出登录</view>
+			<view class="logins" v-show="loginBool" @click="loginOut">退出登录</view>
 		</view>
 	</view>
 </template>
@@ -75,17 +75,16 @@
 	export default{
 		data(){
 			return{
-				userMsg:{},
-				text:"请登录"
+				text:"请登录",
+				loginBool:false,
+				isBool:true
 			}
 		},
 		components: {
 
 		},
 		onShow(){
-			this.userMsg=this.$store.state.usermsg
-			this.text=this.userMsg.usernmae
-			console.log(this.$store.state.usermsg);
+			this.isLogin()
 		},
 		methods:{
 			toLogin(){
@@ -94,7 +93,17 @@
 				})
 			},
 			loginOut(){
-				
+				uni.clearStorageSync();
+				this.loginBool=false
+				this.text="请登录"
+				this.isBool=true
+			},
+			isLogin(){
+				if(uni.getStorageSync("token")){
+					this.text=uni.getStorageSync("username")
+					this.loginBool=true;
+					this.isBool=false
+				}
 			}
 		}
 	}

@@ -14,6 +14,7 @@ const store=new Vuex.Store({
 			//保存用户信息
 			state.usermsg=payload
 			uni.setStorageSync("token",state.usermsg.token)
+			uni.setStorageSync("username",state.usermsg.usernmae)
 		}
 	},
 	actions:{

@@ -134,8 +134,8 @@
 				//请求验证码接口
 				request("/sendSMS", {
 					mobile: this.mobile
-				}, "post", function(res) {
-					// console.log(res);
+				}, "post").then(res=>{
+					console.log(res);
 				})
 			},
 			async toLogin() {
@@ -152,6 +152,7 @@
 								this.userMsg=res.data.result
 								console.log(this.userMsg)
 								this.$store.commit("getUserMsg",this.userMsg)
+								console.log(1)
 								uni.showToast({
 									title: '登录成功',
 									duration: 2000
@@ -160,6 +161,7 @@
 									url:"../profile/profile"
 								})
 							}
+							
 						}
 					)
 				} else {
@@ -167,14 +169,18 @@
 					if(!this.validate("sms")) return;
 					//验证码登录
 					console.log(this.query)
-					request("/smslogin",{mobile:this.mobile,sms:this.sms}, "post", function(res) {
+					request("/smslogin",{mobile:this.mobile,sms:this.sms}, "post").then(res=>{
 						console.log(res);
-						if (res.data.code != 0) {
-							uni.showToast({
-								title: '登录成功',
-								duration: 2000
-							});
-						}
+						this.userMsg=res.data.result
+						console.log(this.userMsg)
+						this.$store.commit("getUserMsg",this.userMsg)
+						uni.showToast({
+							title: '登录成功',
+							duration: 2000
+						});
+						uni.switchTab({
+							url:"../profile/profile"
+						})
 					})
 				}
 			},
