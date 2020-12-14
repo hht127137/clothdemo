@@ -1,7 +1,79 @@
 <template>
-	<view>
-		门店
-		
+	<view class="content">
+		<view class="list">
+			<view class="list-t">
+				<view>
+					<image src="../../static/shop.jpg" mode="" class="img"></image>
+				</view>
+				<view class="sun">
+					<p>万家丽门店</p>
+					<p>万家丽生活广场六楼</p>
+				</view>
+				<view class="icon-t">
+					<p class="iconfont ico">&#xe61d;</p>
+				</view>
+			</view>
+			<view class="list-t">
+				<view>
+					<image src="../../static/shop.jpg" mode="" class="img"></image>
+				</view>
+				<view class="sun">
+					<p>万家丽门店</p>
+					<p>万家丽生活广场六楼</p>
+				</view>
+				<view class="icon-t">
+					<p class="iconfont ico">&#xe61d;</p>
+				</view>
+			</view>
+			<view class="list-t">
+				<view>
+					<image src="../../static/shop.jpg" mode="" class="img"></image>
+				</view>
+				<view class="sun">
+					<p>万家丽门店</p>
+					<p>万家丽生活广场六楼</p>
+				</view>
+				<view class="icon-t">
+					<p class="iconfont ico">&#xe61d;</p>
+				</view>
+			</view>
+			<view class="list-t">
+				<view>
+					<image src="../../static/shop.jpg" mode="" class="img"></image>
+				</view>
+				<view class="sun">
+					<p>万家丽门店</p>
+					<p>万家丽生活广场六楼</p>
+				</view>
+				<view class="icon-t">
+					<p class="iconfont ico">&#xe61d;</p>
+				</view>
+			</view>
+			<view class="list-t">
+				<view>
+					<image src="../../static/shop.jpg" mode="" class="img"></image>
+				</view>
+				<view class="sun">
+					<p>万家丽门店</p>
+					<p>万家丽生活广场六楼</p>
+				</view>
+				<view class="icon-t">
+					<p class="iconfont ico">&#xe61d;</p>
+				</view>
+			</view>
+			<view class="list-t">
+				<view>
+					<image src="../../static/shop.jpg" mode="" class="img"></image>
+				</view>
+				<view class="sun">
+					<p>万家丽门店</p>
+					<p>万家丽生活广场六楼</p>
+				</view>
+				<view class="icon-t">
+					<p class="iconfont ico">&#xe61d;</p>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -16,4 +88,44 @@
 </script>
 
 <style>
+	.list{
+		background: #F8F8F8;
+		overflow: hidden;
+	}
+	.list-t{
+		width: 100%;
+		height: 150upx;
+		background: #FFFFFF;
+		margin: 20upx 0;
+		padding: 20upx;
+		display: flex;
+		position: relative;
+	}
+	.img{
+		width: 180upx;
+		height: 100%;
+	}
+	.sun{
+		padding-left: 40upx;
+		padding-top: 20upx;
+	}
+	.sun p:nth-of-type(1){
+		margin-bottom: 20upx;
+		font-size: 38upx;
+		font-weight: 540;
+	}
+	.sun p:nth-of-type(2){
+		font-size: 30upx;
+		color: #BEBEBE;
+	}
+	.ico{
+		font-size: 50upx;
+		color: #DBDBDB;
+	}
+	.icon-t{
+		position: absolute;
+		right: 60upx;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 </style>
