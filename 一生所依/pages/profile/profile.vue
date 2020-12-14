@@ -18,6 +18,15 @@
 					</view>
 					<view class="titles sucn">
 						<view class="login-t">立即登录</view>
+						<view class="str">
+							等级：
+							<span class="iconfont">&#xe630;</span>
+							<span class="iconfont">&#xe630;</span>
+							<span class="iconfont">&#xe630;</span>
+							<span class="iconfont">&#xe630;</span>
+							<span class="iconfont">&#xe630;</span>
+							<span class="iconfont">&#xe630;</span>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -157,7 +166,7 @@
 	}
 	.titles p:nth-of-type(1){
 		font-size: 80upx;
-		color: #d9d919;
+		color: ##c0c0c0;
 		padding-left: 20upx;
 	}
 	.piple{
@@ -262,5 +271,13 @@
 	}
 	.sucn{
 		position: relative;
+	}
+	.str{
+		position: absolute;
+		top: 68upx;
+		left: -28upx;
+	}
+	.str span{
+		margin-right: 10upx;
 	}
 </style>
