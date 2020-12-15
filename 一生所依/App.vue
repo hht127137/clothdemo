@@ -27,4 +27,7 @@
 		margin: 0;
 		padding: 0;
 	}
+	ul,ol{
+		list-style: none;
+	}
 </style>

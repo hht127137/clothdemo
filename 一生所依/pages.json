@@ -39,6 +39,14 @@
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+			"path": "pages/secondary/datails",
+			"style": {
+				"navigationBarTitleText": "店铺详情",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	"globalStyle": {
