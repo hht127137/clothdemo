@@ -1,7 +1,6 @@
 <template>
 	<view class="content">
 		<view class="list">
-			<view class="list-t" @click="getlist">
 			<view class="list-t" @click="toForm">
 				<view>
 					<image src="../../static/shop.jpg" mode="" class="img"></image>
@@ -76,7 +75,6 @@
 			</view>
 		</view>
 	</view>
-	</view>
 </template>
 
 <script>
@@ -87,11 +85,6 @@
 			}
 		},
 		methods:{
-			getlist(){
-				uni.navigateTo({
-					url:"../secondary/storeform",
-					})
-				},
 			toForm(){
 				uni.navigateTo({
 					url:"../storeform/storeform"
@@ -104,6 +97,8 @@
 <style>
 	.list{
 		background: #F8F8F8;
+		display: flex;
+		flex-direction: column;
 		overflow: hidden;
 	}
 	.list-t{
