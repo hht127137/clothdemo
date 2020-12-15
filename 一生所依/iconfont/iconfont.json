@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "11260733",
+      "name": "星星",
+      "font_class": "xingxing",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "12126301",
+      "name": "星星 - 未激活",
+      "font_class": "xingxing-weijihuo",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
       "icon_id": "639540",
       "name": "文件",
       "font_class": "wenjian",

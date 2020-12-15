@@ -48,23 +48,23 @@
 					</view>
 					<uni-grid :column="2" :showBorder="false">
 						<uni-grid-item>
-							<image src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
+							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
 							<text class="text">文本</text>
 						</uni-grid-item>
 						<uni-grid-item>
-							<image src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
+							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
 							<text class="text">文本</text>
 						</uni-grid-item>
 						<uni-grid-item>
-							<image src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
+							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
 							<text class="text">文本</text>
 						</uni-grid-item>
 						<uni-grid-item>
-							<image src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
+							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
 							<text class="text">文本</text>
 						</uni-grid-item>
 						<uni-grid-item>
-							<image src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
+							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
 							<text class="text">文本</text>
 						</uni-grid-item>
 					</uni-grid>
@@ -130,6 +130,11 @@
 					this.info[1].content=res.data.result[1].img2;
 					this.info[2].content=res.data.result[1].img3;
 					console.log(this.bannerImg);
+				})
+			},
+			datails(){
+				uni.navigateTo({
+					url:"../secondary/datails"
 				})
 			}
 		}
