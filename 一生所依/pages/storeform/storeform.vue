@@ -1,18 +1,22 @@
 <template>
 	<view class="content">
 		<view class="bg">
-			<image src="//gw.alicdn.com/simba/img/TB1tyWrSFXXXXaGXVXXSutbFXXX.jpg_790x10000Q75.jpg_.webp" mode=""></image>
+			<image src="" mode=""></image>
 			<view class="form">
-
+				<view class="forms">
+					<p>开通会员服务，尊享各种福利</p>
+					<image src="../../static/vip-cc.png" mode=""></image>
+				</view>
 			</view>
 		</view>
 		<view class="card">
+			<p style="font-weight: bold;">个人信息:</p>
 			<view>
-				<text>姓名:</text>
+				<text style="margin-right: 30upx;">姓名:</text>
 				<input type="text">
 			</view>
 			<view>
-				<text>电话:</text>
+				<text style="margin-right: 30upx;">电话:</text>
 				<input type="text">
 			</view>
 		</view>
@@ -59,6 +63,8 @@
 	.bg {
 		width: 100%;
 		position: relative;
+		background-image: url(../../static/vip-cc.jpg);
+		background-size: 100% 100%;
 	}
 
 	.bg image {
@@ -68,27 +74,46 @@
 	.form {
 		width: 90%;
 		height: 360rpx;
-		background: #f60;
+		background-color: #FFFFFF;
+		opacity: 0.8;
 		position: absolute;
 		top: 6%;
 		left: 50%;
 		transform: translateX(-50%);
 		border-radius: 20rpx;
-		box-shadow: 0 3px 4px 4px #C8C7CC;
+		// box-shadow: 0 3px 4px 4px #C8C7CC;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		p{
+			color: #FABA40;
+			font-size: 40upx;
+			margin-top: 40upx;
+			margin-left: 40upx;
+		}
+		image{
+			width: 200upx;
+			height: 200upx;
+			position: absolute;
+			bottom: 20upx;
+			right: 20upx;
+		}
 	}
 
 	.card {
+		// border: 1px solid #54BA64;
+		box-shadow: 0upx 8upx 20upx 2upx #54ba64;
+		margin: 40upx;
+		padding: 20upx;
 		input {
 			width: 450rpx;
 			height: 70rpx;
-			background: #C0C0C0;
+			// background: #C0C0C0;
 			border-radius: 15rpx;
 			padding-left: 20rpx;
 			font-size: 30rpx;
-			color: #000;
+			color: #C0C0C0;
+			border-bottom: 1px solid #C8C7CC;
 		}
 
 		view {
@@ -101,9 +126,11 @@
 	}
 
 	.VIP {
+		margin-left: 40upx;
 		.chooseVIP{
 			display: flex;
 			justify-content: space-evenly;
+			margin-top: 40upx;
 			view{
 				width: 200rpx;
 				height: 200rpx;
@@ -140,11 +167,18 @@
 		border-radius: 15rpx;
 		margin: 20rpx auto;
 		color: #fff;
+		margin-top: 40upx;
 	}
 	
 	.active{
 		background: #FEF9F3;
 		border: 2px solid #54BA64;
 		box-sizing: border-box;
+	}
+	.forms{
+		position: relative;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
 	}
 </style>

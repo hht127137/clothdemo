@@ -17,20 +17,8 @@
 						<p>VIP</p>
 					</view>
 					<view class="titles sucn">
-						<view class="login-t">立即登录</view>
 						<view class="login-t" @click="toLogin" v-show="isBool">立即登录</view>
-						<view class="grade"><span class="iconfont icos">&#xe630;</span>一星会员</view>
-						<view class="login-t" v-show="isBool">立即登录</view>
-						<view class="str" v-show="loginBool">
-							等级：
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-						</view>
-						<view class="login-t" @click="toLogin" v-show="isBool">立即登录</view>
+						<view class="grade"  v-show="loginBool"><span class="iconfont icos">&#xe630;</span>一星会员</view>
 					</view>
 				</view>
 			</view>

@@ -59,7 +59,10 @@
 		{
 			"path": "pages/secondary/share",
 			"style": {
-				"navigationBarTitleText": "分享",
+				"navigationBarTitleText": "分享"
+			}
+		},
+		{
 			"path": "pages/storeform/storeform",
 			"style": {
 				"navigationBarTitleText": "门店表单",
@@ -67,7 +70,6 @@
 				"navigationBarTextStyle":"white"
 			}
 		}
-	}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
