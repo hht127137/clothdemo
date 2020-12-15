@@ -124,8 +124,12 @@
 				this.current = e.detail.current;
 			},
 			getList(){
-				request("/index","","post",function(res){
+				request("/index","","post").then(res=>{
 					console.log(res);
+				    this.info[0].content=res.data.result[1].img1;	
+					this.info[1].content=res.data.result[1].img2;
+					this.info[2].content=res.data.result[1].img3;
+					console.log(this.bannerImg);
 				})
 			},
 			datails(){

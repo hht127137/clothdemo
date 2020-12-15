@@ -32,17 +32,17 @@
 					<view v-else>
 						<view class="input-item">
 							<text class="tit">手机号码</text>
-							<input type="number" placeholder="请输入手机号码" maxlength="11" v-model="query.mobile" />
+							<input type="number" placeholder="请输入手机号码" maxlength="11" v-model="mobile" />
 						</view>
 						<view class="phoneMsg">
-							<input class="tit" placeholder="请输入验证码" maxlength="7" v-model="query.sms" />
+							<input class="tit" placeholder="请输入验证码" maxlength="7" v-model="sms" />
 							<button @click="sendCode">{{codeBtn.text}}</button>
 						</view>
 					</view>
 				</view>
 			</view>
 
-			<button class="confirm-btn" @click="toLogin" :disabled="logining">登录</button>
+			<button class="confirm-btn" @click="toLogin">登录</button>
 			<view class="forget-section">
 				忘记密码?
 			</view>
@@ -67,7 +67,7 @@
 			return {
 				mobile: '',
 				password: '',
-				logining: false,
+				sms:'',
 				loginMode: ["密码登录", "短信登录"],
 				current: 0,
 				msg: "发送验证码",
@@ -76,10 +76,6 @@
 					text: '获取验证码',
 					waitingCode: false,
 					count: this.seconds
-				},
-				query: {
-					mobile: "",
-					sms: ""
 				},
 				//验证规则
 				rules: {
@@ -91,7 +87,12 @@
 						rule: /^[0-9a-zA-Z]{6,16}$/,
 						msg: "密码应该为6-16位"
 					},
-				}
+					sms:{
+						rule: /\d/,
+						msg:"验证不能为空"
+					}
+				},
+				userMsg:{}
 			}
 		},
 		onLoad() {
@@ -112,7 +113,6 @@
 				})
 			},
 			changeLogin(index) {
-				this.logining = false
 				this.current = index;
 			},
 			//发送验证码
@@ -132,39 +132,55 @@
 					}
 				}, 1000);
 				//请求验证码接口
-				console.log(1)
-				console.log(this.query.mobile)
 				request("/sendSMS", {
-					mobile: this.query.mobile
-				}, "post", function(res) {
-					// console.log(res);
+					mobile: this.mobile
+				}, "post").then(res=>{
+					console.log(res);
 				})
 			},
 			async toLogin() {
-				
-				this.logining = true
 				//密码登录
 				if (this.current == 0) {
 					if(!this.validate('mobile')) return;
-					if(!this.validate("password"))  return;
-					console.log(this.mobile)
+					if(!this.validate("password")) return;
 					request("/login", {
 						mobile: this.mobile,
 						password: this.password
-					}, "post", function(res) {
+					}, "post").then(res=>{
 						console.log(res);
-						if (res.data.code != 0) {
-							uni.showToast({
-								title: '登录成功',
-								duration: 2000
-							});
+							if (res.data.code != 0) {
+								this.userMsg=res.data.result
+								console.log(this.userMsg)
+								this.$store.commit("getUserMsg",this.userMsg)
+								console.log(1)
+								uni.showToast({
+									title: '登录成功',
+									duration: 2000
+								});
+								uni.switchTab({
+									url:"../profile/profile"
+								})
+							}
+							
 						}
-					})
+					)
 				} else {
+					if(!this.validate('mobile')) return;
+					if(!this.validate("sms")) return;
 					//验证码登录
 					console.log(this.query)
-					request("/smslogin", this.query, "post", function(res) {
+					request("/smslogin",{mobile:this.mobile,sms:this.sms}, "post").then(res=>{
 						console.log(res);
+						this.userMsg=res.data.result
+						console.log(this.userMsg)
+						this.$store.commit("getUserMsg",this.userMsg)
+						uni.showToast({
+							title: '登录成功',
+							duration: 2000
+						});
+						uni.switchTab({
+							url:"../profile/profile"
+						})
 					})
 				}
 			},

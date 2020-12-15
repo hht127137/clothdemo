@@ -9,7 +9,7 @@
 			<view class="user">
 				<view class="user-t">
 					<view class="portrait"></view>
-					<p>138****5640</p>
+					<p>{{text}}</p>
 					<span class="iconfont ico">&#xe61d;</span>
 				</view>
 				<view class="user-b">
@@ -17,6 +17,7 @@
 						<p>VIP</p>
 					</view>
 					<view class="titles sucn">
+<<<<<<< HEAD
 						<view class="login-t">立即登录</view>
 						<view class="str">
 							等级：
@@ -27,6 +28,9 @@
 							<span class="iconfont">&#xe630;</span>
 							<span class="iconfont">&#xe630;</span>
 						</view>
+=======
+						<view class="login-t" @click="toLogin" v-show="isBool">立即登录</view>
+>>>>>>> 8f068367120c629eec6a11bf9ff36a19a3688c96
 					</view>
 				</view>
 			</view>
@@ -75,7 +79,7 @@
 				</view>
 			</view>
 			<!-- 退出登录 -->
-			<view class="logins"></view>
+			<view class="logins" v-show="loginBool" @click="loginOut">退出登录</view>
 		</view>
 	</view>
 </template>
@@ -84,11 +88,36 @@
 	export default{
 		data(){
 			return{
-				
+				text:"请登录",
+				loginBool:false,
+				isBool:true
 			}
 		},
 		components: {
 
+		},
+		onShow(){
+			this.isLogin()
+		},
+		methods:{
+			toLogin(){
+				uni.navigateTo({
+					url:"../public/login"
+				})
+			},
+			loginOut(){
+				uni.clearStorageSync();
+				this.loginBool=false
+				this.text="请登录"
+				this.isBool=true
+			},
+			isLogin(){
+				if(uni.getStorageSync("token")){
+					this.text=uni.getStorageSync("username")
+					this.loginBool=true;
+					this.isBool=false
+				}
+			}
 		}
 	}
 </script>
@@ -252,14 +281,20 @@
 		color: #FB5F0D;
 	}
 	.logins{
+		width: 300upx;
 		height: 80upx;
-
+        border: 1px solid #2C334D;
+		background: #2C334D;
+		color: #FFFFFF;
+		text-align: center;
+		line-height: 80upx;
+		margin: 22upx auto 44upx;
+		border-radius: 26upx;
 	}
 	.login-t{
 		width: 200upx;
 		height: 60upx;
-		background-color: #2C334D\
-		;
+		background-color: #2C334D;
 		color: #FFFFFF;
 		text-align: center;
 		border-radius: 30upx;
