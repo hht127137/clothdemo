@@ -47,6 +47,22 @@
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+			"path": "pages/secondary/team",
+			"style": {
+				"navigationBarTitleText": "团队会员",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/secondary/share",
+			"style": {
+				"navigationBarTitleText": "分享",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	"globalStyle": {

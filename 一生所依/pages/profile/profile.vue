@@ -17,20 +17,9 @@
 						<p>VIP</p>
 					</view>
 					<view class="titles sucn">
-<<<<<<< HEAD
 						<view class="login-t">立即登录</view>
-						<view class="str">
-							等级：
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-							<span class="iconfont">&#xe630;</span>
-						</view>
-=======
 						<view class="login-t" @click="toLogin" v-show="isBool">立即登录</view>
->>>>>>> 8f068367120c629eec6a11bf9ff36a19a3688c96
+						<view class="grade"><span class="iconfont icos">&#xe630;</span>一星会员</view>
 					</view>
 				</view>
 			</view>
@@ -38,7 +27,7 @@
 			<view class="team">
 				<view class="team-t">我的团队</view>
 				<view class="team-b">
-					<view class="team-1">
+					<view class="team-1" @click="getteam">
 						<view class="icon"></view>
 						<view class="tit">团队会员</view>
 					</view>
@@ -50,7 +39,7 @@
 						<view class="icon ico-2"></view>
 						<view class="tit">我的业绩</view>
 					</view>
-					<view  class="team-1">
+					<view  class="team-1" @click="gitshare">
 						<view class="icon ico-3"></view>
 						<view class="tit">推广邀请</view>
 					</view>
@@ -103,6 +92,16 @@
 			toLogin(){
 				uni.navigateTo({
 					url:"../public/login"
+				})
+			},
+			getteam(){
+				uni.navigateTo({
+					url:"../secondary/team"
+				})
+			},
+			gitshare(){
+				uni.navigateTo({
+					url:"../secondary/share"
 				})
 			},
 			loginOut(){
@@ -192,6 +191,7 @@
 		color: #FFFFFF;
 		padding: 20upx;
 		font-size: 28upx;
+		position: relative;
 	}
 	.titles p:nth-of-type(1){
 		font-size: 80upx;
@@ -314,5 +314,24 @@
 	}
 	.str span{
 		margin-right: 10upx;
+	}
+	.grade{
+		width: 160upx;
+		height: 40upx;
+		border-radius: 20upx;
+		background-color: #A57837;
+		/* text-align: center; */
+		line-height: 40upx;
+		font-size: 24upx;
+		color: #FFFFFF;
+		position: absolute;
+		left: 138upx;
+		top: -12upx;
+		
+	}
+	.icos{
+		color: #FABA40;
+		display: inline-block;
+		margin: 0 10upx 0 10upx;
 	}
 </style>
