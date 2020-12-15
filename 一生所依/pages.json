@@ -60,10 +60,14 @@
 			"path": "pages/secondary/share",
 			"style": {
 				"navigationBarTitleText": "分享",
+			"path": "pages/storeform/storeform",
+			"style": {
+				"navigationBarTitleText": "门店表单",
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
 		}
+	}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
