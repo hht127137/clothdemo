@@ -117,6 +117,15 @@
 		width: 100%;
 		height: 260upx;
 	}
+	
+	page{
+		height: 100%;
+	}
+	
+	.content{
+		height: 100%;
+	}
+	
 	.head{
 		width: 100%;
 		height: 100%;
