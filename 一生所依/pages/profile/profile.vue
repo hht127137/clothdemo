@@ -17,9 +17,8 @@
 						<p>VIP</p>
 					</view>
 					<view class="titles sucn">
-<<<<<<< HEAD
-						<view class="login-t">立即登录</view>
-						<view class="str">
+						<view class="login-t" v-show="isBool">立即登录</view>
+						<view class="str" v-show="loginBool">
 							等级：
 							<span class="iconfont">&#xe630;</span>
 							<span class="iconfont">&#xe630;</span>
@@ -28,9 +27,7 @@
 							<span class="iconfont">&#xe630;</span>
 							<span class="iconfont">&#xe630;</span>
 						</view>
-=======
 						<view class="login-t" @click="toLogin" v-show="isBool">立即登录</view>
->>>>>>> 8f068367120c629eec6a11bf9ff36a19a3688c96
 					</view>
 				</view>
 			</view>

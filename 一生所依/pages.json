@@ -47,6 +47,14 @@
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+			"path": "pages/storeform/storeform",
+			"style": {
+				"navigationBarTitleText": "门店表单",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	"globalStyle": {

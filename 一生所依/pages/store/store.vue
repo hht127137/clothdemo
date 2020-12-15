@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="list">
-			<view class="list-t">
+			<view class="list-t" @click="toForm">
 				<view>
 					<image src="../../static/shop.jpg" mode="" class="img"></image>
 				</view>
@@ -82,6 +82,13 @@
 		data(){
 			return{
 				
+			}
+		},
+		methods:{
+			toForm(){
+				uni.navigateTo({
+					url:"../storeform/storeform"
+				})
 			}
 		}
 	}

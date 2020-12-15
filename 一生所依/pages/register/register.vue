@@ -9,6 +9,12 @@
 			<button @click="sendCode">{{codeBtn.text}}</button>
 		</view>
 		<view class="uni-form-item uni-column">
+			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="请输入邀请码" />
+		</view>
+		<view class="uni-form-item uni-column">
+			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="设置支付密码" />
+		</view>
+		<view class="uni-form-item uni-column">
 			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="请输入用户名" />
 		</view>
 		<view class="uni-form-item uni-column">
@@ -82,7 +88,10 @@
 				        "Content-Type":"application/x-www-form-urlencoded" //自定义请求头信息
 				    },
 				    success: (res) => {
-				        console.log(res);
+						console.log(res);
+				        uni.redirectTo({
+				        	url:"../public/login"
+				        })
 				    }
 				});
 			},
