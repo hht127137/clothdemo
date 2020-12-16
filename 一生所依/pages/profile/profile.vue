@@ -22,52 +22,60 @@
 					</view>
 				</view>
 			</view>
-			<!-- 我的团队 -->
-			<view class="team">
-				<view class="team-t">我的团队</view>
-				<view class="team-b">
-					<view class="team-1" @click="getteam">
-						<view class="icon"></view>
-						<view class="tit">团队会员</view>
-					</view>
-					<view  class="team-1">
-						<view class="icon ico-1"></view>
-						<view class="tit">团队业绩</view>
-					</view>
-					<view  class="team-1">
-						<view class="icon ico-2"></view>
-						<view class="tit">我的业绩</view>
-					</view>
-					<view  class="team-1" @click="gitshare">
-						<view class="icon ico-3"></view>
-						<view class="tit">推广邀请</view>
-					</view>
-				</view>
+			<!-- 设置分区 -->
+			<view class="lists">
+					<ul class="natres">
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">我的余额</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li @click="getteam">
+							<span class="icon"></span>
+							<span class="ccc">我的业绩</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">余额充值</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">昵称设置</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">支付密码</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">提现记录</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">消费记录</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li>
+							<span class="icon"></span>
+							<span class="ccc">密码修改</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li @click="gitshare">
+							<span class="icon"></span>
+							<span class="ccc">分享邀请</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+					</ul>
+				<!-- 退出登录 -->
+				<view class="logins" v-show="loginBool" @click="loginOut">退出登录</view>
 			</view>
-			<!-- 我的代理 -->
-			<view class="teams">
-				<view class="team-t">我的代理</view>
-				<view class="team-b">
-					<view class="team-1">
-						<p class="iconfont ziti">&#xe704;</p>
-						<view class="tit">区域门店</view>
-					</view>
-					<view  class="team-1">
-						<p class="iconfont ziti">&#xe829;</p>
-						<view class="tit">区域会员</view>
-					</view>
-					<view  class="team-1">
-						<p class="iconfont ziti">&#xe69b;</p>
-						<view class="tit">区域业绩</view>
-					</view>
-					<view  class="team-1">
-						<p class="iconfont ziti">&#xe631;</p>
-						<view class="tit">我的收入</view>
-					</view>
-				</view>
-			</view>
-			<!-- 退出登录 -->
-			<view class="logins" v-show="loginBool" @click="loginOut">退出登录</view>
+			
+			
 		</view>
 	</view>
 </template>
@@ -211,82 +219,38 @@
 		font-size: 38upx;
 		margin-right: 10upx;
 	}
-	.team{
-		width: 90%;
-		height: 280upx;
-		background-color: #FFFFFF;
-		margin-top: 186upx;
-		margin-left: 40upx;
-		border-radius: 20upx;
-	}
-	.team-t{
-		width: 100%;
-		height: 30%;
-		border-bottom: 1px solid #E9E4E4;
-		line-height: 90upx;
-		padding-left: 20upx;
-		font-size: 28upx;
-	}
-	.team-b{
-		margin-top: 20upx;
-		width: 100%;
-		height: 60%;
-		display: flex;
-		
-	}
-	.team-1{
-		width: 25%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-evenly;
-		border-right: 1px solid #E9E4E4;
-		padding: 10upx 0;
-	}
 	.icon{
-		width: 70upx;
-		height: 70upx;
-		background: #FC9937 url(../../static/join-b.png) no-repeat 50%;
-		background-size: 40upx 40upx;
+		display: inline-block;
+		margin-right: 20upx;
+		width: 60upx;
+		height: 60upx;
+		background: #7ED048 url(../../static/join-b.png) no-repeat 50%;
+		background-size: 30upx 30upx;
 		border-radius: 50%;
+		position: absolute;
+		top: 19upx;
+		left: 10upx;
 	}
 	.ico-1{
-		width: 70upx;
-		height: 70upx;
+		width: 60upx;
+		height: 60upx;
 		background: #FD543D url(../../static/titles-v.png) no-repeat 50%;
-		background-size: 40upx 40upx;
+		background-size: 30upx 30upx;
 		border-radius: 50%;
 	}
 	.ico-2{
-		width: 70upx;
-		height: 70upx;
+		width: 60upx;
+		height: 60upx;
 		background: #5BC0FB url(../../static/money-cde.png) no-repeat 50%;
-		background-size: 40upx 40upx;
+		background-size: 30upx 30upx;
 		border-radius: 50%;
 	}
 	.ico-3{
-		width: 70upx;
-		height: 70upx;
+		width: 60upx;
+		height: 60upx;
 		background: #7ED048 url(../../static/1加好友.png) no-repeat 50%;
-		background-size: 40upx 40upx;
+		background-size: 30upx 30upx;
 		border-radius: 50%;
-	}
-	.tit{
-		color: #A8A8A8;
-		font-size: 28upx;
-	}
-	.teams{
-		width: 90%;
-		height: 280upx;
-		background-color: #FFFFFF;
-		margin-top: 20upx;
-		margin-left: 40upx;
-		border-radius: 20upx;
-	}
-	.ziti{
-		font-size: 60upx;
-		color: #FB5F0D;
 	}
 	.logins{
 		width: 300upx;
@@ -296,7 +260,7 @@
 		color: #FFFFFF;
 		text-align: center;
 		line-height: 80upx;
-		margin: 22upx auto 44upx;
+		margin: 22upx auto 84upx;
 		border-radius: 26upx;
 	}
 	.login-t{
@@ -341,5 +305,36 @@
 		color: #FABA40;
 		display: inline-block;
 		margin: 0 10upx 0 10upx;
+	}
+	.lists{
+		width: 100%;
+		/* height: 100%; */
+		padding: 180upx 40upx 20upx 40upx;
+	}
+	.natres{
+		width: 100%;
+		/* height: 600upx; */
+		background-color: #FFFFFF;
+		box-sizing: border-box;
+		padding: 0 40upx 40upx 40upx;
+	}
+	.natres li{
+		box-sizing: border-box;
+		width: 100%;
+		height: 100upx;
+		border-bottom: 1px solid #DBDBDB;
+		position: relative;
+		padding-left: 100upx;
+	}
+	.ccc{
+		line-height: 100upx;
+		display: inline-block;
+		font-size: 26upx;
+	}
+	.jiantou{
+		display: inline-block;
+		margin-left: 352upx;
+		font-size: 26upx;
+		color: #4CD964;
 	}
 </style>
