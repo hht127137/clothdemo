@@ -243,7 +243,7 @@
 	.ico-3{
 		width: 60upx;
 		height: 60upx;
-		background: #7ED048 url(../../static/1加好友.png) no-repeat 50%;
+		background: #7ED048 url(../../static/jiahaoyou.png) no-repeat 50%;
 		background-size: 30upx 30upx;
 		border-radius: 50%;
 	}

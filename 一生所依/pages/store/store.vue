@@ -69,8 +69,8 @@
 					<p>万家丽门店</p>
 					<p>万家丽生活广场六楼</p>
 				</view>
-				<view class="icon-t">
-					<p class="iconfont ico">&#xe61d;</p>
+				<view class="icon-t icon-asd">
+					立即申请
 				</view>
 			</view>
 		</view>
@@ -120,11 +120,11 @@
 	}
 	.sun p:nth-of-type(1){
 		margin-bottom: 20upx;
-		font-size: 38upx;
+		font-size: 34upx;
 		font-weight: 540;
 	}
 	.sun p:nth-of-type(2){
-		font-size: 30upx;
+		font-size: 24upx;
 		color: #BEBEBE;
 	}
 	.ico{
@@ -145,6 +145,6 @@
 		line-height: 60upx;
 		color: #FFFFFF;
 		border-radius: 30upx;
-		font-size: 24upx;
+		font-size: 20upx;
 	}
 </style>

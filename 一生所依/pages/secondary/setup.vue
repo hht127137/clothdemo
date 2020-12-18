@@ -17,6 +17,11 @@
 						<span class="ccc">支付密码</span>
 						<span class="iconfont jiantou">&#xe61d;</span>
 					</li>
+					<li @click="getbank">
+						<span class="icon"></span>
+						<span class="ccc">银行卡</span>
+						<span class="iconfont jiantou">&#xe61d;</span>
+					</li>
 				</ul>
 		</view>
 		<!-- 昵称修改 -->
@@ -70,6 +75,11 @@
 			},
 			getnom(){
 				this.$refs.popups.hide();
+			},
+			getbank(){
+				uni.navigateTo({
+					url:"./bankcard"
+				})
 			}
 		}
 	}

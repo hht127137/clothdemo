@@ -103,25 +103,17 @@
 			}
 		},
 		{
-			"path": "pages/arry/idcad",
+			"path": "pages/secondary/bankcard",
 			"style": {
-				"navigationBarTitleText": "昵称设置",
+				"navigationBarTitleText": "银行卡",
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
 		},
 		{
-			"path": "pages/arry/password",
+			"path": "pages/secondary/newcard",
 			"style": {
-				"navigationBarTitleText": "密码设置",
-				"navigationBarBackgroundColor":"#010101",
-				"navigationBarTextStyle":"white"
-			}
-		},
-		{
-			"path": "pages/arry/draw",
-			"style": {
-				"navigationBarTitleText": "支付密码",
+				"navigationBarTitleText": "添加银行卡",
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}

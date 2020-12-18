@@ -212,7 +212,7 @@
 		padding-top: 115px;
 		position: relative;
 		width: 100vw;
-		height: 100vh;
+		height: 80vh;
 		overflow: hidden;
 		background: #fff;
 	}
@@ -254,36 +254,6 @@
 		color: #F8F8F8;
 		position: relative;
 		left: -16upx;
-	}
-
-	.right-top-sign {
-		position: absolute;
-		top: 80upx;
-		right: -30upx;
-		z-index: 95;
-
-		&:before,
-		&:after {
-			display: block;
-			content: "";
-			width: 400upx;
-			height: 80upx;
-			background: #b4f3e2;
-		}
-
-		&:before {
-			transform: rotate(50deg);
-			border-radius: 0 50px 0 0;
-		}
-
-		&:after {
-			position: absolute;
-			right: -198upx;
-			top: 0;
-			transform: rotate(-50deg);
-			border-radius: 50px 0 0 0;
-			/* background: pink; */
-		}
 	}
 
 	.left-bottom-sign {
