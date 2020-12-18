@@ -77,6 +77,54 @@
 				"navigationBarBackgroundColor":"#EA923B",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+			"path": "pages/secondary/setup",
+			"style": {
+				"navigationBarTitleText": "系统设置",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/secondary/consumption",
+			"style": {
+				"navigationBarTitleText": "消费记录",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/secondary/withdraw",
+			"style": {
+				"navigationBarTitleText": "提现记录",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/arry/idcad",
+			"style": {
+				"navigationBarTitleText": "昵称设置",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/arry/password",
+			"style": {
+				"navigationBarTitleText": "密码设置",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/arry/draw",
+			"style": {
+				"navigationBarTitleText": "支付密码",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	"globalStyle": {

@@ -18,8 +18,9 @@
 						<p>团队人数</p>
 					</view>
 					<view class="titles">
-						<p>￥980</p>
-						<p>预存余额</p>
+						<view class="draw">
+							提现佣金
+						</view>
 					</view>
 				</view>
 			</view>
@@ -156,5 +157,18 @@
 	}
 	.colors{
 		color: #FABA40;
+	}
+	.draw{
+		width: 140upx;
+		height: 60upx;
+		background-color: #FABA40;
+		margin: 0 auto;
+		margin-top: 50%;
+		transform: translateY(-50%);
+		text-align: center;
+		line-height: 60upx;
+		color: #FFFFFF;
+		border-radius: 30upx;
+		font-size: 28upx;
 	}
 </style>

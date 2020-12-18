@@ -25,7 +25,7 @@
 			<!-- 设置分区 -->
 			<view class="lists">
 					<ul class="natres">
-						<li>
+						<li @click="getconsumption">
 							<span class="icon"></span>
 							<span class="ccc">我的余额</span>
 							<span class="iconfont jiantou">&#xe61d;</span>
@@ -35,39 +35,19 @@
 							<span class="ccc">我的业绩</span>
 							<span class="iconfont jiantou">&#xe61d;</span>
 						</li>
-						<li>
-							<span class="icon"></span>
-							<span class="ccc">余额充值</span>
-							<span class="iconfont jiantou">&#xe61d;</span>
-						</li>
-						<li>
-							<span class="icon"></span>
-							<span class="ccc">昵称设置</span>
-							<span class="iconfont jiantou">&#xe61d;</span>
-						</li>
-						<li>
-							<span class="icon"></span>
-							<span class="ccc">支付密码</span>
-							<span class="iconfont jiantou">&#xe61d;</span>
-						</li>
-						<li>
+						<li @click="getwithdraw">
 							<span class="icon"></span>
 							<span class="ccc">提现记录</span>
-							<span class="iconfont jiantou">&#xe61d;</span>
-						</li>
-						<li>
-							<span class="icon"></span>
-							<span class="ccc">消费记录</span>
-							<span class="iconfont jiantou">&#xe61d;</span>
-						</li>
-						<li>
-							<span class="icon"></span>
-							<span class="ccc">密码修改</span>
 							<span class="iconfont jiantou">&#xe61d;</span>
 						</li>
 						<li @click="gitshare">
 							<span class="icon"></span>
 							<span class="ccc">分享邀请</span>
+							<span class="iconfont jiantou">&#xe61d;</span>
+						</li>
+						<li @click="getset">
+							<span class="icon"></span>
+							<span class="ccc">设置</span>
 							<span class="iconfont jiantou">&#xe61d;</span>
 						</li>
 					</ul>
@@ -109,6 +89,21 @@
 			gitshare(){
 				uni.navigateTo({
 					url:"../secondary/share"
+				})
+			},
+			getset(){
+				uni.navigateTo({
+					url:"../secondary/setup"
+				})
+			},
+			getconsumption(){
+				uni.navigateTo({
+					url:"../secondary/consumption"
+				})
+			},
+			getwithdraw(){
+				uni.navigateTo({
+					url:"../secondary/withdraw"
 				})
 			},
 			loginOut(){
@@ -338,8 +333,10 @@
 	}
 	.jiantou{
 		display: inline-block;
-		margin-left: 352upx;
 		font-size: 26upx;
 		color: #4CD964;
+		position: absolute;
+		top: 40upx;
+		right: 12upx;
 	}
 </style>
