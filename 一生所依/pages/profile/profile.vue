@@ -224,7 +224,7 @@
 		margin-right: 20upx;
 		width: 60upx;
 		height: 60upx;
-		background: #7ED048 url(../../static/join-b.png) no-repeat 50%;
+		background: #EA923B url(../../static/join-b.png) no-repeat 50%;
 		background-size: 30upx 30upx;
 		border-radius: 50%;
 		position: absolute;
@@ -260,7 +260,7 @@
 		color: #FFFFFF;
 		text-align: center;
 		line-height: 80upx;
-		margin: 22upx auto 84upx;
+		margin: 22upx auto 110upx;
 		border-radius: 26upx;
 	}
 	.login-t{
@@ -288,16 +288,20 @@
 		margin-right: 10upx;
 	}
 	.grade{
-		width: 160upx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/* width: 160upx; */
+		padding: 14upx 20upx;
+		box-sizing: border-box;
 		height: 40upx;
 		border-radius: 20upx;
 		background-color: #A57837;
 		/* text-align: center; */
-		line-height: 40upx;
 		font-size: 24upx;
 		color: #FFFFFF;
 		position: absolute;
-		left: 138upx;
+		right: 58upx;
 		top: -12upx;
 		
 	}
@@ -310,6 +314,7 @@
 		width: 100%;
 		/* height: 100%; */
 		padding: 180upx 40upx 20upx 40upx;
+		background-color: #F3F1F1;
 	}
 	.natres{
 		width: 100%;

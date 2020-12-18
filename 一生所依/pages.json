@@ -69,6 +69,14 @@
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+			"path": "pages/secondary/payment",
+			"style": {
+				"navigationBarTitleText": "购物支付",
+				"navigationBarBackgroundColor":"#EA923B",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	"globalStyle": {

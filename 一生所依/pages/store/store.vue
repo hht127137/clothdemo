@@ -45,8 +45,8 @@
 					<p>万家丽门店</p>
 					<p>万家丽生活广场六楼</p>
 				</view>
-				<view class="icon-t">
-					<p class="iconfont ico">&#xe61d;</p>
+				<view class="icon-t icon-asd">
+					立即申请
 				</view>
 			</view>
 			<view class="list-t">
@@ -57,8 +57,8 @@
 					<p>万家丽门店</p>
 					<p>万家丽生活广场六楼</p>
 				</view>
-				<view class="icon-t">
-					<p class="iconfont ico">&#xe61d;</p>
+				<view class="icon-t icon-asd">
+					立即申请
 				</view>
 			</view>
 			<view class="list-t">
@@ -140,7 +140,7 @@
 	.icon-asd{
 		width: 140upx;
 		height: 60upx;
-		background-color: #08ACEE;
+		background-color: #EA923B;
 		text-align: center;
 		line-height: 60upx;
 		color: #FFFFFF;

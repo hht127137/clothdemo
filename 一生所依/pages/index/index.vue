@@ -36,7 +36,7 @@
 						<view class="icon"></view>
 						<view>金牌分享</view>
 					</view>
-					<view>
+					<view @click="getpayment">
 						<view class="icon"></view>
 						<view>购物支付</view>
 					</view>
@@ -135,6 +135,11 @@
 			datails(){
 				uni.navigateTo({
 					url:"../secondary/datails"
+				})
+			},
+			getpayment(){
+				uni.navigateTo({
+					url:"../secondary/payment"
 				})
 			}
 		}
