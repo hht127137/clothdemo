@@ -2,38 +2,84 @@
 	<view>
 		<view class="nav">
 			<view class="fun">
-				<view class="httr">付款码</view>
+				<view class="httr">支付中心</view>
 				<view class="zhifu">
-					<image class="img" src="../../static/zhifuma.png" mode=""></image>
+					<view>
+						<text>￥</text>
+						<input @focus="showPay" type="text" v-model="price" value="" placeholder="点击输入金额" />
+					</view>
+
+					<button @click="pay">确定支付</button>
 				</view>
-				<view class="tties">点击可查看付款码字数</view>
-				<view class="zhifu-b">
-					<image class="imgs" src="../../static/zhifu.png" mode=""></image>
-				</view>
-				<view class="lie"></view>
-				<view class="yue">账号余额500元</view>
 			</view>
+			<!-- 支付弹窗 -->
+			<payDialog @inputDel="del" @inputPrice="getNum" @close="closePopup" v-if="isPayPopup"></payDialog>
 		</view>
 	</view>
 </template>
 
 <script>
+	import payDialog from '@/components/payPopup.vue'
+
+	export default {
+		data() {
+			return {
+				isPayPopup: false, //支付弹窗
+				price: ''
+			}
+		},
+		methods: {
+			//关闭支付弹窗
+			closePopup() {
+				this.isPayPopup = false
+			},
+			//显示支付弹窗
+			showPay() {
+				this.isPayPopup = true
+			},
+			pay() {
+
+			},
+			getNum(e) {
+				console.log(e)
+				if(this.price.length>0){
+					if(e=='.'){
+						if(this.price.indexOf(".")>-1) return;
+					}
+				}else{
+					if(e=='.'){
+						this.price +="0" + e
+						return;
+					}
+				}
+				this.price += e
+			},
+			del(){
+				this.price=this.price.substring(0,this.price.length-1)
+			}
+		},
+		components: {
+			payDialog
+		}
+	}
 </script>
 
-<style>
-	.nav{
+<style lang="scss">
+	.nav {
 		width: 100%;
 		height: 100%;
 		background-color: #EA923B;
 		box-sizing: border-box;
 		padding: 50upx 50upx 320upx 50upx;
 	}
-	.fun{
+
+	.fun {
 		width: 100%;
 		height: 920upx;
 		background-color: #FFFFFF;
 	}
-	.httr{
+
+	.httr {
 		width: 100%;
 		height: 110upx;
 		background-color: #F5F5F5;
@@ -43,44 +89,31 @@
 		font-size: 38upx;
 		font-weight: bold;
 	}
-	.zhifu{
-		box-sizing: border-box;
-		width: 100%;
-		height: 280upx;
-		padding: 40upx 40upx 0upx 40upx;
+
+	.zhifu {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		view {
+			width: 90%;
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid #C0C0C0;
+			padding: 16rpx 0;
+			font-size: 38rpx;
+			margin: 60rpx 60rpx 30rpx;
+		}
+
+		button {
+			width: 90%;
+			color: #fff;
+			background: #EA923B;
+		}
 	}
-	.img{
+
+	.img {
 		width: 100%;
 		height: 100%;
-	}
-	.tties{
-		width: 100%;
-		height: 100upx;
-		text-align: center;
-		line-height: 100upx;
-		font-size: 36upx;
-	}
-	.zhifu-b{
-		box-sizing: border-box;
-		width: 100%;
-		height: 340upx;
-		padding: 0upx 165upx 80upx 165upx;
-	}
-	.imgs{
-		width: 320upx;
-		height: 320upx;
-	}
-	.lie{
-		width: 100%;
-		height: 4upx;
-		border-top: 1px dashed #333333;
-		border-bottom: 1px dashed #333333;
-	}
-	.yue{
-		text-align: center;
-		width: 100%;
-		height: 80upx;
-		line-height: 80upx;
-		font-size: 36upx;
 	}
 </style>
