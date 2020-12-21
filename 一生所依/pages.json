@@ -81,7 +81,7 @@
 		{
 			"path": "pages/secondary/setup",
 			"style": {
-				"navigationBarTitleText": "系统设置",
+				"navigationBarTitleText": "用户设置",
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}

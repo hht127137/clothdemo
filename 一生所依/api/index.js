@@ -3,7 +3,7 @@
 const request = (url,data,method) => {
 	console.log(url,method,data)
 	let httpDefaultOpts = {
-		url: "http://yishengsuoyi.cnyouwei.com/index/index" + url,
+		url: "http://yishengsuoyi.cnyouwei.com/" + url,
 		data: data,
 		method: method,
 		header:{

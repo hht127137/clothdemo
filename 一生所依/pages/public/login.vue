@@ -143,7 +143,7 @@
 				if (this.current == 0) {
 					if(!this.validate('mobile')) return;
 					if(!this.validate("password")) return;
-					request("/login", {
+					request("index/index/login", {
 						mobile: this.mobile,
 						password: this.password
 					}, "post").then(res=>{

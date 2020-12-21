@@ -18,12 +18,25 @@
 </template>
 
 <script>
+import request from "@/api/index.js"
+	
 export default {
 	data() {
-		return {};
+		return {
+			img:''
+		}
 	},
-	onLoad() {},
-	methods: {}
+	onLoad() {
+		this.getData()
+	},
+	methods: {
+		getData(){
+			request('index/store/imgregister',{id:4},'post').then(res=>{
+				console.log(res);
+				this.img=res.data.code;
+			})
+		}
+	}
 };
 </script>
 

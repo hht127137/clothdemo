@@ -17,7 +17,7 @@
 				<view class="uni-padding-wrap">
 					<swiper class="limitp-hg" vertical="true" autoplay="true" circular="true" interval="3000">
 						<swiper-item v-for="(item, index) in msg" :key="index">
-							<navigator class="scrool-list-item">{{item}}</navigator>
+							<navigator class="scrool-list-item">{{item.title}}</navigator>
 						</swiper-item>
 					</swiper>
 				</view>
@@ -98,11 +98,7 @@
 					backgroundColor: "#fff",
 					selectedBackgroundColor: "#E0AD89"
 				},
-				msg: [
-					"一生依世最优政策全国招盟区县加盟商!",
-					"欢迎加盟",
-					"加盟热线154981516511"
-				],
+				msg: [],
 				cur: 0
 			}
 		},
@@ -124,12 +120,17 @@
 				this.current = e.detail.current;
 			},
 			getList(){
-				request("/index","","post").then(res=>{
+				request("index/index/index","","post").then(res=>{
 					console.log(res);
 				    this.info[0].content=res.data.result[1].img1;	
 					this.info[1].content=res.data.result[1].img2;
 					this.info[2].content=res.data.result[1].img3;
 					console.log(this.bannerImg);
+				})
+				//公告
+				request("index/index/male","","post").then(res=>{
+				    console.log(res);
+					this.msg=res.data.result;
 				})
 			},
 			datails(){

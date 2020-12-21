@@ -10,10 +10,6 @@
 				<text class="texts">卡号</text>
 				<input type="text" value="" class="put"/>
 			</view>
-			<view class="ipt">
-				<text class="texts">电话号码</text>
-				<input type="text" value="" class="put"/>
-			</view>
 			<view class="btn">确定</view>
 		</view>
 	</view>

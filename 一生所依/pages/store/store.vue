@@ -1,73 +1,13 @@
 <template>
 	<view class="content">
 		<view class="list">
-			<view class="list-t" @click="toForm">
+			<view class="list-t" @click="toForm" v-for="(item,index) in storeform" :key="index">
 				<view>
-					<image src="../../static/shop.jpg" mode="" class="img"></image>
+					<image :src="item.img" mode="" class="img"></image>
 				</view>
 				<view class="sun">
-					<p>万家丽门店</p>
-					<p>万家丽生活广场六楼</p>
-				</view>
-				<view class="icon-t icon-asd">
-					立即申请
-				</view>
-			</view>
-			<view class="list-t">
-				<view>
-					<image src="../../static/shop.jpg" mode="" class="img"></image>
-				</view>
-				<view class="sun">
-					<p>万家丽门店</p>
-					<p>万家丽生活广场六楼</p>
-				</view>
-				<view class="icon-t icon-asd">
-					立即申请
-				</view>
-			</view>
-			<view class="list-t">
-				<view>
-					<image src="../../static/shop.jpg" mode="" class="img"></image>
-				</view>
-				<view class="sun">
-					<p>万家丽门店</p>
-					<p>万家丽生活广场六楼</p>
-				</view>
-				<view class="icon-t icon-asd">
-					立即申请
-				</view>
-			</view>
-			<view class="list-t">
-				<view>
-					<image src="../../static/shop.jpg" mode="" class="img"></image>
-				</view>
-				<view class="sun">
-					<p>万家丽门店</p>
-					<p>万家丽生活广场六楼</p>
-				</view>
-				<view class="icon-t icon-asd">
-					立即申请
-				</view>
-			</view>
-			<view class="list-t">
-				<view>
-					<image src="../../static/shop.jpg" mode="" class="img"></image>
-				</view>
-				<view class="sun">
-					<p>万家丽门店</p>
-					<p>万家丽生活广场六楼</p>
-				</view>
-				<view class="icon-t icon-asd">
-					立即申请
-				</view>
-			</view>
-			<view class="list-t">
-				<view>
-					<image src="../../static/shop.jpg" mode="" class="img"></image>
-				</view>
-				<view class="sun">
-					<p>万家丽门店</p>
-					<p>万家丽生活广场六楼</p>
+					<p>{{item.name}}</p>
+					<p>{{item.address}}</p>
 				</view>
 				<view class="icon-t icon-asd">
 					立即申请
@@ -78,16 +18,27 @@
 </template>
 
 <script>
+	import request from '@/api/index.js'
+	
 	export default{
 		data(){
 			return{
-				
+				storeform:[]
 			}
+		},
+		onLoad(){
+			this.getData()
 		},
 		methods:{
 			toForm(){
 				uni.navigateTo({
 					url:"../storeform/storeform"
+				})
+			},
+			getData(){
+				request('index/store/index','','post').then(res=>{
+					console.log(res);
+					this.storeform=res.data.result
 				})
 			}
 		}
