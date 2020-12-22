@@ -3,10 +3,15 @@
 		<view class="nav">
 			<!-- 用户 -->
 			<view class="nav_hd">
-				<view class="user-t">
+				<view class="userBox">
+					<view class="user-t">
 					<view class="portrait"></view>
 					<p>hello***您好</p>
-					<view class="grade"><span class="iconfont ico">&#xe630;</span>一星会员</view>
+					  <view class="grade"><span class="iconfont ico">&#xe630;</span>一星会员</view>
+					</view>
+						<view class="draw" @click="toCash">
+							提现佣金
+						</view>
 				</view>
 				<view class="user-b">
 					<view class="titles">
@@ -18,27 +23,28 @@
 						<p>团队人数</p>
 					</view>
 					<view class="titles">
-						<view class="draw" @click="toCash">
-							提现佣金
-						</view>
+						<p>2</p>
+						<p>直推人数</p>
 					</view>
 				</view>
 			</view>
+			<!-- 我的下级 -->
+			<view class="mylevel">{{titles}}的下级</view>
 			<!-- 列表 -->
-			<view class="fun">
+			<!-- <view class="fun">
 				<p class="fun-l">推荐人</p>
 				<p class="fun-l">级别</p>
 				<p class="fun-l colors">团队收益</p>
+			</view> -->
+			<view class="funs" v-for="(item,index) in myConnect" :key='index' @click="recomNext(item.name)" v-if="flag">
+				<p class="fun-t">{{item.name}}</p>
+				<p class="fun-t">{{item.level}}星会员</p>
+				<p class="fun-t colors">{{item.teamPrice}}</p>
 			</view>
-			<view class="funs">
-				<p class="fun-t">xxx联系人</p>
-				<p class="fun-t">一星级别</p>
-				<p class="fun-t colors">1800</p>
-			</view>
-			<view class="funs">
-				<p class="fun-t">想要的幸福</p>
-				<p class="fun-t">一星级别</p>
-				<p class="fun-t colors">2400</p>
+			<view class="funs" v-for="(item,index) in recomdPeo" :key='index' v-else>
+				<p class="fun-t">{{item.name}}</p>
+				<p class="fun-t">{{item.level}}星会员</p>
+				<p class="fun-t colors">{{item.teamPrice}}</p>
 			</view>
 		</view>
 	</view>
@@ -48,7 +54,18 @@
 	export default{
 		data(){
 			return{
-				
+				myConnect:[{
+					name:'晴天',
+					level:'二',
+					teamPrice:10000
+				}],
+				recomdPeo:[{
+					name:'告白气球',
+					level:'三',
+					teamPrice:998
+				}],
+				flag:true,
+				titles:'我'
 			}
 		},
 		methods:{
@@ -56,6 +73,11 @@
 				uni.navigateTo({
 					url:"./cash"
 				})
+			},
+			recomNext(title){
+				console.log(title)
+				this.flag=false
+				this.titles=title
 			}
 		}
 	}
@@ -173,16 +195,27 @@
 		color: #FABA40;
 	}
 	.draw{
-		width: 140upx;
+		width: 200upx;
 		height: 60upx;
 		background-color: #FABA40;
 		margin: 0 auto;
-		margin-top: 50%;
 		transform: translateY(-50%);
 		text-align: center;
 		line-height: 60upx;
 		color: #FFFFFF;
 		border-radius: 30upx;
 		font-size: 28upx;
+		margin: 30upx 30upx 0 0;
+	}
+	
+	.userBox{
+		display: flex;
+		align-items: center;
+	}
+	
+	.mylevel{
+		width: 100%;
+		text-align: center;
+		margin-top: 28upx;
 	}
 </style>

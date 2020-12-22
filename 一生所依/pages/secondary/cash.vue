@@ -6,7 +6,7 @@
 				<view class="zhifu">
 					<view>
 						<text>￥</text>
-						<input type="number" value="" v-model="price" placeholder="点击输入金额" />
+						<input type="number" value="" v-model="query.money" placeholder="点击输入金额" />
 					</view>
 					<button @click="paycard">选择银行卡</button>
 					<button @click="payBtn">确定提现</button>
@@ -37,6 +37,9 @@
 <script>
 	import jpPwd from '@/components/jp-pwd/jp-pwd.vue';
 	import wybPopup from '@/components/wyb-popup/wyb-popup.vue';
+	import request from '@/api/index.js'
+	import md5 from '@/js/md5.js'
+	
 	export default {
 		data() {
 			return {
@@ -59,12 +62,31 @@
 						url:"../../static/jianshe.png"
 					}
 				],
+				query:{
+					userid:4,
+					bankcard:'55189115615615611',
+					name:'长沙银行',//银行名称
+					loginKey:'',
+					money:''//提现金额(测试最低提现10)
+				},
 				current:0
 			}
 		},
 		methods: {
+			sort_ascii() {
+				var token=uni.getStorageSync('token');
+				var s1 = token.split('').sort().join('')
+			    var s2=md5(s1).toUpperCase();
+				console.log(s2)
+				this.query.loginKey=s2
+			},
 			payBtn() {
 				this.$refs.jpPwds.toOpen()
+				this.sort_ascii()
+				console.log(this.query);
+				request('index/store/tx',this.query,'post').then(res=>{
+					console.log(res);
+				})
 			},
 			paycard() {
 				this.$refs.popup.show()

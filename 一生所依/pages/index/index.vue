@@ -26,7 +26,7 @@
 				<view class="tabar">
 					<view>
 						<view class="icon"></view>
-						<view>开通VIP</view>
+						<view>我的余额</view>
 					</view>
 					<view>
 						<view class="icon"></view>
@@ -43,7 +43,7 @@
 				</view>
 				<view class="brandArea">
 					<view class="title">
-						<view>线下门店品牌专区</view>
+						<view>线下品牌门店专区</view>
 						<view>更多</view>
 					</view>
 					<uni-grid :column="2" :showBorder="false">

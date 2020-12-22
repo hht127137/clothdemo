@@ -15,9 +15,6 @@
 			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="设置支付密码" />
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="请输入用户名" />
-		</view>
-		<view class="uni-form-item uni-column">
 			<input type="password" v-model="query.password" class="uni-input" name="" placeholder="请输入密码" />
 		</view>
 		<button type="primary" @click="register">注册</button>

@@ -61,7 +61,7 @@
 		data(){
 			return{
 				passquery:{
-					userid:4,
+					userid:'4',
 					password:'',
 					upassword:'',
 					loginKey:''
