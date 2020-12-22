@@ -18,7 +18,7 @@
 						<p>团队人数</p>
 					</view>
 					<view class="titles">
-						<view class="draw">
+						<view class="draw" @click="toCash">
 							提现佣金
 						</view>
 					</view>
@@ -45,6 +45,20 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				
+			}
+		},
+		methods:{
+			toCash(){
+				uni.navigateTo({
+					url:"./cash"
+				})
+			}
+		}
+	}
 </script>
 
 <style>

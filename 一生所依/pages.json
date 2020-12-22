@@ -117,6 +117,14 @@
 				"navigationBarBackgroundColor":"#010101",
 				"navigationBarTextStyle":"white"
 			}
+		},
+		{
+			"path": "pages/secondary/cash",
+			"style": {
+				"navigationBarTitleText": "提现",
+				"navigationBarBackgroundColor":"#010101",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	"globalStyle": {
