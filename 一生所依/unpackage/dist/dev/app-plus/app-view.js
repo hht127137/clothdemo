@@ -8377,11 +8377,18 @@ var render = function() {
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
-                [_vm._v("持卡人")]
+                [_vm._v("开户行")]
               ),
               _c("v-uni-input", {
                 staticClass: _vm._$g(5, "sc"),
-                attrs: { type: "text", value: "", _i: 5 }
+                attrs: { type: "text", value: "", _i: 5 },
+                model: {
+                  value: _vm._$g(5, "v-model"),
+                  callback: function($$v) {
+                    _vm.$handleVModelEvent(5, $$v)
+                  },
+                  expression: "query.name"
+                }
               })
             ],
             1
@@ -8393,11 +8400,18 @@ var render = function() {
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
-                [_vm._v("卡号")]
+                [_vm._v("持卡人")]
               ),
               _c("v-uni-input", {
                 staticClass: _vm._$g(8, "sc"),
-                attrs: { type: "text", value: "", _i: 8 }
+                attrs: { type: "text", value: "", _i: 8 },
+                model: {
+                  value: _vm._$g(8, "v-model"),
+                  callback: function($$v) {
+                    _vm.$handleVModelEvent(8, $$v)
+                  },
+                  expression: "query.usernmae"
+                }
               })
             ],
             1
@@ -8405,6 +8419,37 @@ var render = function() {
           _c(
             "v-uni-view",
             { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+            [
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+                [_vm._v("卡号")]
+              ),
+              _c("v-uni-input", {
+                staticClass: _vm._$g(11, "sc"),
+                attrs: { type: "text", value: "", _i: 11 },
+                model: {
+                  value: _vm._$g(11, "v-model"),
+                  callback: function($$v) {
+                    _vm.$handleVModelEvent(11, $$v)
+                  },
+                  expression: "query.bankcard"
+                }
+              })
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            {
+              staticClass: _vm._$g(12, "sc"),
+              attrs: { _i: 12 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
             [_vm._v("确定")]
           )
         ],

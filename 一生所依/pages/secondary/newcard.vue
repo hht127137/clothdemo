@@ -3,19 +3,54 @@
 		<view class="box">
 			<p class="tit">*请绑定持卡人本人的银行卡</p>
 			<view class="ipt">
+				<text class="texts">开户行</text>
+				<input v-model="query.name" type="text" value="" class="put" />
+			</view>
+			<view class="ipt">
 				<text class="texts">持卡人</text>
-				<input type="text" value="" class="put" />
+				<input v-model="query.usernmae" type="text" value="" class="put" />
 			</view>
 			<view class="ipt">
 				<text class="texts">卡号</text>
-				<input type="text" value="" class="put"/>
+				<input v-model="query.bankcard" type="text" value="" class="put"/>
 			</view>
-			<view class="btn">确定</view>
+			<view class="btn" @click="confirm">确定</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import request from '@/api/index.js'
+	import md5 from '@/js/md5.js'
+	
+	export default{
+		data(){
+			return{
+				query:{
+					usernmae:'',
+					userid:'4',
+					loginKey:'',
+					bankcard:'',
+					name:''
+				}
+			}
+		},
+		methods:{
+			confirm(){
+				this.sort_ascii()
+				request('index/store/addbank',this.query,'post').then(res=>{
+					console.log(res);
+				})
+			},
+			sort_ascii() {
+				var token=uni.getStorageSync('token');
+				var s1 = token.split('').sort().join('')
+			    var s2=md5(s1).toUpperCase();
+				console.log(s2)
+				this.query.loginKey=s2
+			}
+		}
+	}
 </script>
 
 <style>

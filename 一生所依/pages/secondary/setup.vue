@@ -28,8 +28,8 @@
 		<wyb-popup ref="popup" type="center" height="400" width="500" radius="6" :showCloseIcon="true">
 		    <view class="popup-content">
 		      <view class="tex">昵称修改</view>
-			  <input type="text" value="" placeholder="请输入旧昵称" class="old"/>
-			  <input type="text" value="" placeholder="请输入新昵称" class="old"/>
+			  <input type="text" v-model="userquery.name" value="" placeholder="请输入旧昵称" class="old"/>
+			  <input type="text" v-model="userquery.username" value="" placeholder="请输入新昵称" class="old"/>
 			  <view class="but">
 				  <button type="default" class="btn" style="background-color: #DBDBDB;" @click="getnone">取消</button>
 				  <button type="default" class="btn" @click="getnone">确定</button>
@@ -41,8 +41,8 @@
 		<wyb-popup ref="popups" type="center" height="400" width="500" radius="6" :showCloseIcon="true">
 		    <view class="popup-content">
 		      <view class="tex">密码修改</view>
-			  <input type="text" value="" placeholder="请输入旧密码" class="old"/>
-			  <input type="text" value="" placeholder="请输入新密码" class="old"/>
+			  <input type="text" value="" v-model="passquery.upassword" placeholder="请输入旧密码" class="old"/>
+			  <input type="text" value="" v-model="passquery.password" placeholder="请输入新密码" class="old"/>
 			  <view class="but">
 				  <button type="default" class="btn" style="background-color: #DBDBDB;" @click="getnom">取消</button>
 				  <button type="default" class="btn" @click="getnom">确定</button>
@@ -54,27 +54,57 @@
 
 <script>
 	import wybPopup from '@/components/wyb-popup/wyb-popup.vue'
+	import request from '@/api/index.js'
+	import md5 from '@/js/md5.js'
+	
 	export default{
 		data(){
 			return{
-				
+				passquery:{
+					userid:4,
+					password:'',
+					upassword:'',
+					loginKey:''
+				},
+				userquery:{
+					userid:'4',
+					username:'',
+					name:'',
+					loginKey:''
+				}
 			}
 		},
 		 components: {
 		        wybPopup
 		    },
 		methods:{
+			sort_ascii() {
+				var token=uni.getStorageSync('token');
+				var s1 = token.split('').sort().join('')
+			    var s2=md5(s1).toUpperCase();
+				console.log(s2)
+				this.passquery.loginKey=s2
+				this.userquery.loginKey=s2
+			},
 			getidcad(){
 				this.$refs.popup.show();
 			},
 			getnone(){
 				this.$refs.popup.hide();
+				this.sort_ascii()
+				request('index/store/upname',this.userquery,'post').then(res=>{
+					console.log(res);
+				})
 			},
 			getpass(){
 				this.$refs.popups.show();
 			},
 			getnom(){
 				this.$refs.popups.hide();
+				this.sort_ascii()
+				request('index/store/password',this.passquery,'post').then(res=>{
+					console.log(res);
+				})
 			},
 			getbank(){
 				uni.navigateTo({

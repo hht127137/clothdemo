@@ -25,16 +25,38 @@
 </template>
 
 <script>
+	import request from '@/api/index.js'
+	 import md5 from '@/js/md5.js'
+	
 	export default{
 		data(){
 			return{
-				
+				query:{
+					userid:'4',
+					loginKey:''
+				}
 			}
+		},
+		onLoad(){
+			this.getData()
 		},
 		methods:{
 			getcard(){
 				uni.navigateTo({
 					url:"./newcard"
+				})
+			},
+			sort_ascii() {
+				var token=uni.getStorageSync('token');
+				var s1 = token.split('').sort().join('')
+			    var s2=md5(s1).toUpperCase();
+				console.log(s2)
+				this.query.loginKey=s2
+			},
+			getData(){
+				this.sort_ascii();
+				request('index/store/bankcards',this.query,'post').then(res=>{
+					console.log(res);
 				})
 			}
 		}
