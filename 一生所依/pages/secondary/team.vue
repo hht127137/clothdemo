@@ -31,11 +31,11 @@
 			<!-- 我的下级 -->
 			<view class="mylevel">{{titles}}的下级</view>
 			<!-- 列表 -->
-			<!-- <view class="fun">
+			<view class="fun">
 				<p class="fun-l">推荐人</p>
 				<p class="fun-l">级别</p>
 				<p class="fun-l colors">团队收益</p>
-			</view> -->
+			</view>
 			<view class="funs" v-for="(item,index) in myConnect" :key='index' @click="recomNext(item.name)" v-if="flag">
 				<p class="fun-t">{{item.name}}</p>
 				<p class="fun-t">{{item.level}}星会员</p>

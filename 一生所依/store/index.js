@@ -12,9 +12,9 @@ const store=new Vuex.Store({
 		getUserMsg(state,payload){
 			console.log(payload)
 			//保存用户信息
-			state.usermsg=payload
-			uni.setStorageSync("token",state.usermsg.token)
-			uni.setStorageSync("username",state.usermsg.usernmae)
+			uni.setStorageSync("token",payload.token)
+			uni.setStorageSync("username",payload.usernmae)
+			uni.setStorageSync('userid',payload.id)
 		}
 	},
 	actions:{

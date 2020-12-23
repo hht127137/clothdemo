@@ -29,15 +29,15 @@
 						<view>我的余额</view>
 					</view>
 					<view>
-						<view class="icon"></view>
+						<view class="icon iconImg1"></view>
 						<view>推广分享</view>
 					</view>
 					<view>
-						<view class="icon"></view>
+						<view class="icon iconImg2"></view>
 						<view>金牌分享</view>
 					</view>
 					<view @click="getpayment">
-						<view class="icon"></view>
+						<view class="icon iconImg3"></view>
 						<view>购物支付</view>
 					</view>
 				</view>
@@ -47,25 +47,9 @@
 						<view>更多</view>
 					</view>
 					<uni-grid :column="2" :showBorder="false">
-						<uni-grid-item>
-							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
-							<text class="text">文本</text>
-						</uni-grid-item>
-						<uni-grid-item>
-							<image @click="datails" src="https://img.alicdn.com/imgextra/i4/356060330/O1CN01VvAmxI1EJBKaLTLQB_!!0-item_pic.jpg_430x430q90.jpg"></image>
-							<text class="text">文本</text>
+						<uni-grid-item v-for="(item,index) in recommend" :key="index">
+							<image @click="datails" :src="item.img"></image>
+							<text class="text">{{item.name}}</text>
 						</uni-grid-item>
 					</uni-grid>
 				</view>
@@ -99,7 +83,8 @@
 					selectedBackgroundColor: "#E0AD89"
 				},
 				msg: [],
-				cur: 0
+				cur: 0,
+				recommend:[]
 			}
 		},
 		components: {
@@ -131,6 +116,11 @@
 				request("index/index/male","","post").then(res=>{
 				    console.log(res);
 					this.msg=res.data.result;
+				})
+				//推荐门店
+				request("index/store/recommend","","post").then(res=>{
+					console.log(res);
+					this.recommend=res.data.result
 				})
 			},
 			datails(){
@@ -242,11 +232,26 @@
 	.icon {
 		width: 66upx;
 		height: 66upx;
-		background: #FCECD6 url(../../static/an-crowns.png) no-repeat 50%;
+		background: #FCECD6 url(../../static/我的余额@1x.png) no-repeat 50%;
 		background-size: 44upx 44upx;
 		border-radius: 50%;
 		margin: 14upx 0;
 	}
+	
+	.iconImg1{
+		background: #FCECD6 url(../../static/推广分享@1x.png) no-repeat 50%;
+		background-size: 44upx 44upx;
+	}
+
+    .iconImg2{
+		background: #FCECD6 url(../../static/金牌门店@1x.png) no-repeat 50%;
+		background-size: 44upx 44upx;
+	}
+
+    .iconImg3{
+    	background: #FCECD6 url(../../static/购物支付@1x.png) no-repeat 50%;
+		background-size: 44upx 44upx;
+    }
 
 	.img-iocn {
 		width: 50rpx;

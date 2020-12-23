@@ -61,13 +61,13 @@
 		data(){
 			return{
 				passquery:{
-					userid:'4',
+					userid:uni.getStorageSync('userid'),
 					password:'',
 					upassword:'',
 					loginKey:''
 				},
 				userquery:{
-					userid:'4',
+					userid:uni.getStorageSync('userid'),
 					username:'',
 					name:'',
 					loginKey:''

@@ -28,7 +28,7 @@
 			return{
 				query:{
 					usernmae:'',
-					userid:'4',
+					userid:'',
 					loginKey:'',
 					bankcard:'',
 					name:''
@@ -38,6 +38,7 @@
 		methods:{
 			confirm(){
 				this.sort_ascii()
+				this.query.userid=uni.getStorageSync('userid')
 				request('index/store/addbank',this.query,'post').then(res=>{
 					console.log(res);
 				})

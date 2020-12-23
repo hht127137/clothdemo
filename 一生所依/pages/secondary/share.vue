@@ -31,7 +31,7 @@ export default {
 	},
 	methods: {
 		getData(){
-			request('index/store/imgregister',{id:4},'post').then(res=>{
+			request('index/store/imgregister',{id:uni.getStorageSync('userid')},'post').then(res=>{
 				console.log(res);
 				this.img=res.data.code;
 			})

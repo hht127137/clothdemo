@@ -63,7 +63,7 @@
 					}
 				],
 				query:{
-					userid:4,
+					userid:'',
 					bankcard:'55189115615615611',
 					name:'长沙银行',//银行名称
 					loginKey:'',
@@ -82,6 +82,7 @@
 			},
 			payBtn() {
 				this.$refs.jpPwds.toOpen()
+				this.query.userid=uni.getStorageSync('userid')
 				this.sort_ascii()
 				console.log(this.query);
 				request('index/store/tx',this.query,'post').then(res=>{

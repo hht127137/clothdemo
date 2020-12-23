@@ -152,7 +152,6 @@
 								this.userMsg=res.data.result
 								console.log(this.userMsg)
 								this.$store.commit("getUserMsg",this.userMsg)
-								console.log(1)
 								uni.showToast({
 									title: '登录成功',
 									duration: 2000

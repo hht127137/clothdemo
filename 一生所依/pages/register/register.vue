@@ -9,10 +9,7 @@
 			<button @click="sendCode">{{codeBtn.text}}</button>
 		</view>
 		<view class="uni-form-item uni-column">
-			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="请输入邀请码" />
-		</view>
-		<view class="uni-form-item uni-column">
-			<input type="text" v-model="query.username" class="uni-input" name="" placeholder="设置支付密码" />
+			<input type="text" v-model="query.paypass" class="uni-input" name="" placeholder="设置支付密码" />
 		</view>
 		<view class="uni-form-item uni-column">
 			<input type="password" v-model="query.password" class="uni-input" name="" placeholder="请输入密码" />
@@ -36,7 +33,7 @@
 				query:{
 					mobile:"",
 					password:"",
-					username:"",
+					username:"xiaobu",
 					sms:""
 				}
 			}
@@ -86,9 +83,9 @@
 				    },
 				    success: (res) => {
 						console.log(res);
-				        uni.redirectTo({
-				        	url:"../public/login"
-				        })
+				        // uni.redirectTo({
+				        // 	url:"../public/login"
+				        // })
 				    }
 				});
 			},

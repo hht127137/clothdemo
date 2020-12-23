@@ -32,7 +32,7 @@
 		data(){
 			return{
 				query:{
-					userid:'4',
+					userid:'',
 					loginKey:''
 				}
 			}
@@ -54,6 +54,7 @@
 				this.query.loginKey=s2
 			},
 			getData(){
+				this.query.userid=uni.getStorageSync('userid')
 				this.sort_ascii();
 				request('index/store/bankcards',this.query,'post').then(res=>{
 					console.log(res);
