@@ -132,7 +132,7 @@
 					}
 				}, 1000);
 				//请求验证码接口
-				request("/sendSMS", {
+				request("index/index/sendSMS", {
 					mobile: this.mobile
 				}, "post").then(res=>{
 					console.log(res);
@@ -168,7 +168,7 @@
 					if(!this.validate("sms")) return;
 					//验证码登录
 					console.log(this.query)
-					request("/smslogin",{mobile:this.mobile,sms:this.sms}, "post").then(res=>{
+					request("index/index/smslogin",{mobile:this.mobile,sms:this.sms}, "post").then(res=>{
 						console.log(res);
 						this.userMsg=res.data.result
 						console.log(this.userMsg)

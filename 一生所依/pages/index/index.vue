@@ -25,16 +25,22 @@
 			<view class="article">
 				<view class="tabar">
 					<view>
+						<navigator url="../secondary/consumption" hover-class="none">
 						<view class="icon"></view>
 						<view>我的余额</view>
+						</navigator>
 					</view>
 					<view>
+						<navigator url="../secondary/share" hover-class="none">
 						<view class="icon iconImg1"></view>
 						<view>推广分享</view>
+						</navigator>
 					</view>
 					<view>
-						<view class="icon iconImg2"></view>
-						<view>金牌分享</view>
+						<navigator url="../store/store" hover-class="none" open-type="switchTab">
+							<view class="icon iconImg2"></view>
+							<view>金牌门店</view>
+						</navigator>
 					</view>
 					<view @click="getpayment">
 						<view class="icon iconImg3"></view>
@@ -129,6 +135,7 @@
 				})
 			},
 			getpayment(){
+				console.log(1)
 				uni.navigateTo({
 					url:"../secondary/payment"
 				})
@@ -173,6 +180,13 @@
 	}
 
 	.tabar view {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+    .tabar view navigator{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -232,24 +246,24 @@
 	.icon {
 		width: 66upx;
 		height: 66upx;
-		background: #FCECD6 url(../../static/我的余额@1x.png) no-repeat 50%;
+		background: #FCECD6 url(../../static/myprice.png) no-repeat 50%;
 		background-size: 44upx 44upx;
 		border-radius: 50%;
 		margin: 14upx 0;
 	}
 	
 	.iconImg1{
-		background: #FCECD6 url(../../static/推广分享@1x.png) no-repeat 50%;
+		background: #FCECD6 url(../../static/share.png) no-repeat 50%;
 		background-size: 44upx 44upx;
 	}
 
     .iconImg2{
-		background: #FCECD6 url(../../static/金牌门店@1x.png) no-repeat 50%;
+		background: #FCECD6 url(../../static/store.png) no-repeat 50%;
 		background-size: 44upx 44upx;
 	}
 
     .iconImg3{
-    	background: #FCECD6 url(../../static/购物支付@1x.png) no-repeat 50%;
+    	background: #FCECD6 url(../../static/shopping.png) no-repeat 50%;
 		background-size: 44upx 44upx;
     }
 
